@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:52:57 by andcarva          #+#    #+#             */
-/*   Updated: 2024/11/12 19:19:16 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:46:18 by andre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 //#include <fcntl.h>
-#define BUFFER_SIZE 2048
 
 char	*get_next_line(int fd)
 {
