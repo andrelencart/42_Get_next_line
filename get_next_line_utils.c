@@ -6,7 +6,7 @@
 /*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:48:37 by andcarva          #+#    #+#             */
-/*   Updated: 2024/11/13 17:11:06 by andre            ###   ########.fr       */
+/*   Updated: 2024/11/14 13:39:39 by andre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,19 @@ char	*ft_strjoin(char *s1, char *s2)
 		cnt1++;
 	}
 	cnt2 = 0;
-	while (s2 && s2[cnt2] != '\n')
+	while (s2[cnt2] && s2[cnt2] != '\n')
 	{
 		newstr[cnt1 + cnt2] = s2[cnt2];
 		cnt2++;
 	}
+	if (s2[cnt2] == '\n')
+		newstr[cnt1 + cnt2] = '\n';
 	newstr[cnt1 + cnt2] = '\0';
+	if (s1)
+		free (s1);
 	return (newstr);
 }
+
 
 size_t	ft_linelen(char *str)
 {
@@ -47,4 +52,22 @@ size_t	ft_linelen(char *str)
 	if (str && str[len] == '\n')
 		len++;
 	return (len);
+}
+
+void	clean_buff(char *buffer)
+{
+	int	i = 0;
+	int	j = 0;
+
+	while (buffer[i] != '\n' && buffer[i] != '\0')
+		i++;
+	if (buffer[i] == '\n')
+		i++;
+	while (buffer[i] != '\0')
+	{
+		buffer[j] = buffer[i];
+		i++;
+		j++;
+	}	
+	buffer[j] = '\0';
 }
