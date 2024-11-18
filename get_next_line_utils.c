@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:48:37 by andcarva          #+#    #+#             */
-/*   Updated: 2024/11/14 13:39:39 by andre            ###   ########.fr       */
+/*   Updated: 2024/11/18 17:41:03 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,12 @@ char	*ft_strjoin(char *s1, char *s2)
 		cnt2++;
 	}
 	if (s2[cnt2] == '\n')
-		newstr[cnt1 + cnt2] = '\n';
+		newstr[cnt1 + cnt2++] = '\n';
 	newstr[cnt1 + cnt2] = '\0';
 	if (s1)
-		free (s1);
+		free(s1);
 	return (newstr);
 }
-
 
 size_t	ft_linelen(char *str)
 {
@@ -56,18 +55,20 @@ size_t	ft_linelen(char *str)
 
 void	clean_buff(char *buffer)
 {
-	int	i = 0;
-	int	j = 0;
+	int	i;
+	int	j;
 
+	i = 0;
+	j = 0;
 	while (buffer[i] != '\n' && buffer[i] != '\0')
 		i++;
 	if (buffer[i] == '\n')
 		i++;
-	while (buffer[i] != '\0')
+	while (buffer[j] != '\0')
 	{
 		buffer[j] = buffer[i];
 		i++;
 		j++;
-	}	
+	}
 	buffer[j] = '\0';
 }
