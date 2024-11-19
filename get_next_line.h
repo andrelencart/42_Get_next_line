@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 15:10:56 by andcarva          #+#    #+#             */
-/*   Updated: 2024/11/18 18:04:11 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:52:25 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 char	*get_next_line(int fd);
 size_t	ft_linelen(char *str);
-char	*ft_strjoin(char *s1, char *s2);
-void	clean_buff(char *buffer);
+char	*ft_strjoin(char *str1, char *str2);
+void	ft_buff_move(char *buffer);
 
-#endif // GET_NEXT_LINE_H 
+#endif // GET_NEXT_LINE_H

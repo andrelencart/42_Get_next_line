@@ -6,38 +6,37 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:48:37 by andcarva          #+#    #+#             */
-/*   Updated: 2024/11/18 17:41:03 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:51:22 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *str1, char *str2)
 {
 	char		*newstr;
-	size_t		cnt1;
-	size_t		cnt2;
+	size_t		i;
+	size_t		j;
 
-	cnt1 = 0;
-	newstr = malloc(sizeof(char) * ((ft_linelen(s1) + ft_linelen(s2)) + 1));
+	i = 0;
+	j = 0;
+	newstr = malloc(sizeof(char) * ((ft_linelen(str1) + ft_linelen(str2)) + 1));
 	if (!newstr)
-		return (NULL);
-	while (s1 && s1[cnt1] != '\0')
+		return (free(newstr), NULL);
+	while (str1 && str1[i] != '\0')
 	{
-		newstr[cnt1] = s1[cnt1];
-		cnt1++;
+		newstr[i] = str1[i];
+		i++;
 	}
-	cnt2 = 0;
-	while (s2[cnt2] && s2[cnt2] != '\n')
+	while (str2[j] && str2[j] != '\n')
 	{
-		newstr[cnt1 + cnt2] = s2[cnt2];
-		cnt2++;
+		newstr[i + j] = str2[j];
+		j++;
 	}
-	if (s2[cnt2] == '\n')
-		newstr[cnt1 + cnt2++] = '\n';
-	newstr[cnt1 + cnt2] = '\0';
-	if (s1)
-		free(s1);
+	if (str2[j] == '\n')
+		newstr[i + j++] = '\n';
+	newstr[i + j] = '\0';
+	free(str1);
 	return (newstr);
 }
 
@@ -53,7 +52,7 @@ size_t	ft_linelen(char *str)
 	return (len);
 }
 
-void	clean_buff(char *buffer)
+void	ft_buff_move(char *buffer)
 {
 	int	i;
 	int	j;
