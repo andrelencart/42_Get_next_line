@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:48:37 by andcarva          #+#    #+#             */
-/*   Updated: 2024/11/21 19:11:35 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/11/21 18:50:11 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strjoin(char *str1, char *str2)
 {
 	char		*newstr;
 	size_t		i;
-	int			j;
+	size_t		j;
 
 	i = 0;
 	j = 0;
 	newstr = malloc(sizeof(char) * ((ft_linelen(str1) + ft_linelen(str2)) + 1));
 	if (!newstr)
-		return (free(newstr), NULL);
+		return (free(str1), NULL);
 	while (str1 && str1[i] != '\0')
 	{
 		newstr[i] = str1[i];
